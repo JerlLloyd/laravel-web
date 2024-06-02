@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,10 @@ Route::controller(AuthController::class)->group(function () {
 //Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    Route::get('/shop', [ProductsController::class, 'shop'])->name('shop');
+    Route::get('/shopping-cart', [ProductsController::class, 'bookCart'])->name('shopping.cart');
+    Route::get('/product/{id}',[ProductsController::class, 'addProductsToCart'])->name('addproducts.to.cart');
+    Route::delete('/delete-cart-product', [ProductsController::class, 'deleteProduct'])->name('delete.cart.product');
 });
 
 //Admin Routes List

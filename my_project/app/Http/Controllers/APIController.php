@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Validator;
 
 class APIController extends Controller
 {
+    public function getUser()
+    {
+        $items=User::all();
+        
+        return response()->json($items);
+    }
+    
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [

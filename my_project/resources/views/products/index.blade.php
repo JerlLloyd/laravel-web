@@ -19,6 +19,7 @@
                 <th scope="col" class="px-6 py-3">#</th>
                 <th scope="col" class="px-6 py-3">Title</th>
                 <th scope="col" class="px-6 py-3">Price</th>
+                <th scope="col" class="px-6 py-3">Image</th>
                 <th scope="col" class="px-6 py-3">Product Code</th>
                 <th scope="col" class="px-6 py-3">Description</th>
                 <th scope="col" class="px-6 py-3">Action</th>
@@ -36,6 +37,9 @@
                 </td>
                 <td>
                     {{ $rs->price }}
+                </td>
+                <td>
+                    <img src="{{ asset( $rs->image )}}" style="width: 70px; height:70px" alt="Img"/>
                 </td>
                 <td>
                     {{ $rs->product_code }}
